@@ -284,7 +284,9 @@ func (dt *Flat) HTMLTemplate() string {
             <td class="email-masthead">
               <a class="email-masthead_name" href="{{.Hermes.Product.Link}}" target="_blank">
                 {{ if .Hermes.Product.Logo }}
-                  <img src="{{.Hermes.Product.Logo | url }}" class="email-logo" />
+					<svg width="300" height="70" style="width: 300px;height: 70px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="300px" height="70px" xml:space="preserve">
+						<image width="300" height="70" x="0" y="0" class="email-logo" style="max-height:50px" href="{{.Hermes.Product.Logo | url }}" />
+					</svg>
                 {{ else }}
                   {{ .Hermes.Product.Name }}
                 {{ end }}
