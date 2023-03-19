@@ -20,7 +20,7 @@ func (w *Leave) Email() hermes.Email {
 				{
 					Instructions: "点击按钮查看本次请假详情",
 					Button: hermes.Button{
-						Text: "确认",
+						Text: "查看详情",
 						Link: "https://www.baidu.com/",
 					},
 				},
