@@ -146,7 +146,7 @@ func setDefaultHermesValues(h *Hermes) error {
 		Product: Product{
 			Name:        "Defeng",
 			Copyright:   "Copyright © 2022 defeng-hub. All rights reserved.",
-			TroubleText: "如果你对'{ACTION}'按钮有问题，复制并粘贴下面的URL到你的浏览器中",
+			TroubleText: "如果你无法点击 '{ACTION}' 按钮，请复制下面的URL到你的浏览器中访问",
 		},
 	}
 	// 将给定的hermes引擎配置与默认配置合并

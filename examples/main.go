@@ -3,8 +3,9 @@ package main
 import (
 	"errors"
 	"fmt"
+	"github.com/defeng-hub/Go-Email-Template"
+	bythedu "github.com/defeng-hub/Go-Email-Template/email_project/bythedu.com"
 	"github.com/go-gomail/gomail"
-	"github.com/matcornic/hermes/v2"
 	"golang.org/x/crypto/ssh/terminal"
 	"io/ioutil"
 	"net/mail"
@@ -18,6 +19,7 @@ type example interface {
 }
 
 func main() {
+	projectName := "facec.cc"
 	h := hermes.Hermes{
 		DisableCSSInlining: false,                //内联css
 		TextDirection:      hermes.TDLeftToRight, //从左到右
@@ -34,6 +36,7 @@ func main() {
 		new(receipt),
 		new(maintenance),
 		new(inviteCode),
+		new(bythedu.Leave),
 	}
 
 	themes := []hermes.Theme{
@@ -45,7 +48,7 @@ func main() {
 	for _, theme := range themes {
 		h.Theme = theme
 		for _, e := range examples {
-			generateEmails(h, e.Email(), e.Name())
+			generateEmails(projectName, h, e.Email(), e.Name())
 		}
 	}
 
@@ -93,8 +96,9 @@ func main() {
 	}
 }
 
-func generateEmails(h hermes.Hermes, email hermes.Email, example string) {
-	dir := "email_template/"
+func generateEmails(projectName string, h hermes.Hermes, email hermes.Email, example string) {
+	dir := "email_template/" + projectName + "/"
+
 	// Generate the HTML template and save it
 	res, err := h.GenerateHTML(email)
 	if err != nil {

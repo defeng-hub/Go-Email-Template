@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/matcornic/hermes/v2"
+	"github.com/defeng-hub/Go-Email-Template"
 )
 
 type reset struct {
