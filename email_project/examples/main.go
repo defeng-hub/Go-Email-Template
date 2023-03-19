@@ -125,16 +125,16 @@ func generateEmails(projectName string, h hermes.Hermes, email hermes.Email, exa
 type smtpAuthentication struct {
 	Server         string
 	Port           int
-	SenderEmail    string
-	SenderIdentity string
-	SMTPUser       string
-	SMTPPassword   string
+	SenderEmail    string // 发件人地址
+	SenderIdentity string // 发件人姓名
+	SMTPUser       string // 用户名
+	SMTPPassword   string // 密码
 }
 
 // sendOptions are options for sending an email
 type sendOptions struct {
 	To      string
-	Subject string
+	Subject string //主题
 }
 
 // send 发送邮件

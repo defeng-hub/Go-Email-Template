@@ -121,7 +121,7 @@ type Template struct {
 	Email  Email
 }
 
-func setDefaultEmailValues(e *Email) error {
+func SetDefaultEmailValues(e *Email) error {
 	// 邮件默认值
 	defaultEmail := Email{
 		Body: Body{
@@ -137,8 +137,8 @@ func setDefaultEmailValues(e *Email) error {
 	return mergo.Merge(e, defaultEmail)
 }
 
-// 引擎默认值
-func setDefaultHermesValues(h *Hermes) error {
+// SetDefaultHermesValues 引擎默认值
+func SetDefaultHermesValues(h *Hermes) error {
 	defaultTextDirection := TDLeftToRight
 	defaultHermes := Hermes{
 		Theme:         new(Default),
@@ -164,7 +164,7 @@ func setDefaultHermesValues(h *Hermes) error {
 // GenerateHTML 生成从数据到HTML阅读器的电子邮件正文
 // 这是为 现代电子邮件客户端
 func (h *Hermes) GenerateHTML(email Email) (string, error) {
-	err := setDefaultHermesValues(h)
+	err := SetDefaultHermesValues(h)
 	if err != nil {
 		return "", err
 	}
@@ -174,7 +174,7 @@ func (h *Hermes) GenerateHTML(email Email) (string, error) {
 // GeneratePlainText 根据数据生成邮件正文
 // 这是为 旧的电子邮件客户端
 func (h *Hermes) GeneratePlainText(email Email) (string, error) {
-	err := setDefaultHermesValues(h)
+	err := SetDefaultHermesValues(h)
 	if err != nil {
 		return "", err
 	}
@@ -187,7 +187,7 @@ func (h *Hermes) GeneratePlainText(email Email) (string, error) {
 
 func (h *Hermes) generateTemplate(email Email, tplt string) (string, error) {
 
-	err := setDefaultEmailValues(&email)
+	err := SetDefaultEmailValues(&email)
 	if err != nil {
 		return "", err
 	}
