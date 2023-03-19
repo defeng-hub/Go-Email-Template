@@ -1,4 +1,4 @@
-package bythedu_com
+package main
 
 import hermes "github.com/defeng-hub/Go-Email-Template"
 

@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"github.com/defeng-hub/Go-Email-Template"
-	bythedu "github.com/defeng-hub/Go-Email-Template/email_project/bythedu.com"
 	"github.com/go-gomail/gomail"
 	"golang.org/x/crypto/ssh/terminal"
 	"io/ioutil"
@@ -19,24 +18,19 @@ type example interface {
 }
 
 func main() {
-	projectName := "facec.cc"
+	projectName := "bythedu.com"
 	h := hermes.Hermes{
 		DisableCSSInlining: false,                //内联css
 		TextDirection:      hermes.TDLeftToRight, //从左到右
 		Product: hermes.Product{
-			Name: "defeng-hub",
-			Link: "https://www.facec.cc/",
-			Logo: "https://pic.bythedu.com/defeng_boke/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220914065639_%E7%9C%8B%E5%9B%BE%E7%8E%8B_1663109992996.png",
+			Name: "博远天合",
+			Link: "https://www.bythedu.com/",
+			Logo: "https://pic.bythedu.com/gofile/%E9%80%8F%E6%98%8E_logo_2023-02-12_20-39-27.png",
 		},
 		Theme: nil,
 	}
 	examples := []example{
-		new(welcome),
-		new(reset),
-		new(receipt),
-		new(maintenance),
-		new(inviteCode),
-		new(bythedu.Leave),
+		new(Leave),
 	}
 
 	themes := []hermes.Theme{
