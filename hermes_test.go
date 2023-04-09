@@ -266,11 +266,11 @@ func (ed *WithInviteCode) getExample() (Hermes, Email) {
 
 	email := Email{
 		Body{
-			Name:      "Jon Snow",
+			Name: "Jon Snow",
 			Actions: []Action{
 				{
 					Instructions: "Here is your invite code:",
-					InviteCode: "123456",
+					InviteCode:   "123456",
 				},
 			},
 		},
@@ -492,9 +492,9 @@ func TestHermes_TextDirectionAsDefault(t *testing.T) {
 
 func TestHermes_Default(t *testing.T) {
 	h := Hermes{}
-	setDefaultHermesValues(&h)
+	//setDefaultHermesValues(&h)
 	email := Email{}
-	setDefaultEmailValues(&email)
+	//setDefaultEmailValues(&email)
 
 	assert.Equal(t, h.TextDirection, TDLeftToRight)
 	assert.Equal(t, h.Theme, new(Default))
