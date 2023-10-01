@@ -6,7 +6,6 @@ import (
 	"github.com/defeng-hub/Go-Email-Template"
 	"github.com/go-gomail/gomail"
 	"golang.org/x/crypto/ssh/terminal"
-	"io/ioutil"
 	"net/mail"
 	"os"
 	"strconv"
@@ -50,6 +49,7 @@ func main() {
 		}
 	}
 
+	// 读取Email，发送Email
 	sendEmails := os.Getenv("HERMES_SEND_EMAILS") == "true"
 	// Send emails only when requested
 	if sendEmails {
@@ -77,11 +77,11 @@ func main() {
 			for _, e := range examples {
 				options.Subject = "Hermes | " + h.Theme.Name() + " | " + e.Name()
 				fmt.Printf("Sending email '%s'...\n", options.Subject)
-				htmlBytes, err := ioutil.ReadFile(fmt.Sprintf("%v/%v.%v.html", h.Theme.Name(), h.Theme.Name(), e.Name()))
+				htmlBytes, err := os.ReadFile(fmt.Sprintf("%v/%v.%v.html", h.Theme.Name(), h.Theme.Name(), e.Name()))
 				if err != nil {
 					panic(err)
 				}
-				txtBytes, err := ioutil.ReadFile(fmt.Sprintf("%v/%v.%v.txt", h.Theme.Name(), h.Theme.Name(), e.Name()))
+				txtBytes, err := os.ReadFile(fmt.Sprintf("%v/%v.%v.txt", h.Theme.Name(), h.Theme.Name(), e.Name()))
 				if err != nil {
 					panic(err)
 				}
@@ -106,7 +106,7 @@ func generateEmails(projectName string, h hermes.Hermes, email hermes.Email, exa
 	if err != nil {
 		panic(err)
 	}
-	err = ioutil.WriteFile(fmt.Sprintf(dir+"%v/%v.%v.html", h.Theme.Name(), h.Theme.Name(), example), []byte(res), 0644)
+	err = os.WriteFile(fmt.Sprintf(dir+"%v/%v.%v.html", h.Theme.Name(), h.Theme.Name(), example), []byte(res), 0644)
 	if err != nil {
 		panic(err)
 	}
@@ -116,12 +116,13 @@ func generateEmails(projectName string, h hermes.Hermes, email hermes.Email, exa
 	if err != nil {
 		panic(err)
 	}
-	err = ioutil.WriteFile(fmt.Sprintf(dir+"%v/%v.%v.txt", h.Theme.Name(), h.Theme.Name(), example), []byte(res), 0644)
+	err = os.WriteFile(fmt.Sprintf(dir+"%v/%v.%v.txt", h.Theme.Name(), h.Theme.Name(), example), []byte(res), 0644)
 	if err != nil {
 		panic(err)
 	}
 }
 
+// 下方都是为了发送email
 type smtpAuthentication struct {
 	Server         string
 	Port           int

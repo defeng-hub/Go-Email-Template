@@ -37,9 +37,9 @@ func (ed *SimpleExample) getExample() (Hermes, Email) {
 		Theme: ed.theme,
 		Product: Product{
 			Name:      "HermesName",
-			Link:      "http://hermes-link.com",
+			Link:      "https://www.baidu.com.com",
 			Copyright: "Copyright © Hermes-Test",
-			Logo:      "http://www.duchess-france.org/wp-content/uploads/2016/01/gopher.png",
+			Logo:      "https://www.baidu.com.com/2016/01/gopher.png",
 		},
 		TextDirection:      TDLeftToRight,
 		DisableCSSInlining: true,
@@ -85,7 +85,7 @@ func (ed *SimpleExample) getExample() (Hermes, Email) {
 					Button: Button{
 						Color: "#22BC66",
 						Text:  "Confirm your account",
-						Link:  "https://hermes-example.com/confirm?token=d9729feb74992cc3482b350163a1a010",
+						Link:  "https://www.baidu.com",
 					},
 				},
 			},
@@ -101,9 +101,9 @@ func (ed *SimpleExample) assertHTMLContent(t *testing.T, r string) {
 
 	// Assert on product
 	assert.Contains(t, r, "HermesName", "Product: Should find the name of the product in email")
-	assert.Contains(t, r, "http://hermes-link.com", "Product: Should find the link of the product in email")
+	assert.Contains(t, r, "https://www.baidu.com", "Product: Should find the link of the product in email")
 	assert.Contains(t, r, "Copyright © Hermes-Test", "Product: Should find the Copyright of the product in email")
-	assert.Contains(t, r, "http://www.duchess-france.org/wp-content/uploads/2016/01/gopher.png", "Product: Should find the logo of the product in email")
+	assert.Contains(t, r, "https://www.baidu.com/2016/01/gopher.png", "Product: Should find the logo of the product in email")
 	assert.Contains(t, r, "If you’re having trouble with the button &#39;Confirm your account&#39;, copy and paste the URL below into your web browser.", "Product: Should find the trouble text in email")
 	// Assert on email body
 	assert.Contains(t, r, "Hi Jon Snow", "Name: Should find the name of the person")
@@ -116,7 +116,7 @@ func (ed *SimpleExample) assertHTMLContent(t *testing.T, r string) {
 	assert.Contains(t, r, "started with Hermes", "Action: Should have instruction")
 	assert.Contains(t, r, "Confirm your account", "Action: Should have button of action")
 	assert.Contains(t, r, "#22BC66", "Action: Button should have given color")
-	assert.Contains(t, r, "https://hermes-example.com/confirm?token=d9729feb74992cc3482b350163a1a010", "Action: Button should have link")
+	assert.Contains(t, r, "https://www.baidu.com", "Action: Button should have link")
 	assert.Contains(t, r, "Need help, or have questions", "Outro: Should have outro")
 }
 
@@ -124,9 +124,9 @@ func (ed *SimpleExample) assertPlainTextContent(t *testing.T, r string) {
 
 	// Assert on product
 	assert.Contains(t, r, "HermesName", "Product: Should find the name of the product in email")
-	assert.Contains(t, r, "http://hermes-link.com", "Product: Should find the link of the product in email")
+	assert.Contains(t, r, "https://www.baidu.com", "Product: Should find the link of the product in email")
 	assert.Contains(t, r, "Copyright © Hermes-Test", "Product: Should find the Copyright of the product in email")
-	assert.NotContains(t, r, "http://www.duchess-france.org/wp-content/uploads/2016/01/gopher.png", "Product: Should not find any logo in plain text")
+	assert.NotContains(t, r, "https://www.baidu.com", "Product: Should not find any logo in plain text")
 
 	// Assert on email body
 	assert.Contains(t, r, "Hi Jon Snow", "Name: Should find the name of the person")
@@ -147,7 +147,7 @@ func (ed *SimpleExample) assertPlainTextContent(t *testing.T, r string) {
 	assert.Contains(t, r, "started with Hermes", "Action: Should have instruction")
 	assert.NotContains(t, r, "Confirm your account", "Action: Should not have button of action in plain text")
 	assert.NotContains(t, r, "#22BC66", "Action: Button should not have color in plain text")
-	assert.Contains(t, r, "https://hermes-example.com/confirm?token=d9729feb74992cc3482b350163a1a010", "Action: Even if button is not possible in plain text, it should have the link")
+	assert.Contains(t, r, "https://www.baidu.com", "Action: Even if button is not possible in plain text, it should have the link")
 	assert.Contains(t, r, "Need help, or have questions", "Outro: Should have outro")
 }
 
@@ -160,7 +160,7 @@ func (ed *WithTitleInsteadOfNameExample) getExample() (Hermes, Email) {
 		Theme: ed.theme,
 		Product: Product{
 			Name: "Hermes",
-			Link: "http://hermes.com",
+			Link: "https://www.baidu.com",
 		},
 		DisableCSSInlining: true,
 	}
@@ -193,7 +193,7 @@ func (ed *WithGreetingDifferentThanDefault) getExample() (Hermes, Email) {
 		Theme: ed.theme,
 		Product: Product{
 			Name: "Hermes",
-			Link: "http://hermes.com",
+			Link: "https://www.baidu.com",
 		},
 		DisableCSSInlining: true,
 	}
@@ -226,7 +226,7 @@ func (ed *WithSignatureDifferentThanDefault) getExample() (Hermes, Email) {
 		Theme: ed.theme,
 		Product: Product{
 			Name: "Hermes",
-			Link: "http://hermes.com",
+			Link: "https://www.baidu.com",
 		},
 		DisableCSSInlining: true,
 	}
@@ -259,7 +259,7 @@ func (ed *WithInviteCode) getExample() (Hermes, Email) {
 		Theme: ed.theme,
 		Product: Product{
 			Name: "Hermes",
-			Link: "http://hermes.com",
+			Link: "https://www.baidu.com",
 		},
 		DisableCSSInlining: true,
 	}
@@ -297,7 +297,7 @@ func (ed *WithFreeMarkdownContent) getExample() (Hermes, Email) {
 		Theme: ed.theme,
 		Product: Product{
 			Name: "Hermes",
-			Link: "http://hermes.com",
+			Link: "https://www.baidu.com",
 		},
 		DisableCSSInlining: true,
 	}
@@ -343,7 +343,7 @@ Feel free to contact us for any question regarding this matter at [support@herme
 					Button: Button{
 						Color: "#22BC66",
 						Text:  "Button",
-						Link:  "https://hermes-example.com/confirm?token=d9729feb74992cc3482b350163a1a010",
+						Link:  "https://www.baidu.com",
 					},
 				},
 			},
