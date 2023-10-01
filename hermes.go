@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"html/template"
 
-	"github.com/Masterminds/sprig"
+	"github.com/defeng-hub/Go-Email-Template/pkg/html2text"
+	"github.com/defeng-hub/Go-Email-Template/pkg/premailer"
+	"github.com/defeng-hub/Go-Email-Template/pkg/sprig"
+
 	"github.com/imdario/mergo"
-	"github.com/jaytaylor/html2text"
 	"github.com/russross/blackfriday/v2"
-	"github.com/vanng822/go-premailer/premailer"
 )
 
 // Hermes is an 实例 of the hermes email 生成器
@@ -106,7 +107,7 @@ type Action struct {
 	InviteCode   string
 }
 
-// Button defines an action to launch
+// 按钮定义一个要启动的动作
 type Button struct {
 	Color     string
 	TextColor string
@@ -114,8 +115,6 @@ type Button struct {
 	Link      string
 }
 
-// Template is the struct given to Golang templating
-// Root object in a template is this struct
 type Template struct {
 	Hermes Hermes
 	Email  Email
